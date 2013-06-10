@@ -1,3 +1,1 @@
-# Gope — An easy way to manage `GOPATH`
-
-
+## Gope — An easy way to manage `GOPATH`
