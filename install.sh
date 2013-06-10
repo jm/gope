@@ -43,7 +43,7 @@ then
   cat "$HOME/.gope/scripts/initializer.sh" >> "$HOME/.profile"
   echo ""
 
-  echo "OK, all done!"
+  echo "OK, all done!  Open a new shell to get started."
   cd $return_to
 else
   echo
