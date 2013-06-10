@@ -1,0 +1,20 @@
+#!/bin/bash
+
+SCRIPTPATH="`dirname $BASH_SOURCE`"
+source $SCRIPTPATH/../functions.sh
+
+case "$1" in
+  create)
+  gope-create $2
+  ;;
+
+  init)
+  gope-init
+  ;;
+
+  *)
+  $GOBINPATH $*
+  ;;
+esac
+
+tput sgr0
