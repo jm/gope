@@ -30,7 +30,7 @@ Gope comes with two scripts: `gope-create` and `gope-init`.  The first creates a
     $ gope-create goper
     -> Generating project in goper
       Making directories...
-      Making .go file...
+      Making .gopath file...
     -> Done.
 
 If you create a `~/.gope/config` file and set a `create_subcommands` variable in it like so:
@@ -42,10 +42,10 @@ If you create a `~/.gope/config` file and set a `create_subcommands` variable in
     myhostname: ~$ go create goper
     -> Generating project in goper
       Making directories...
-      Making .go file...
+      Making .gopath file...
     -> Done.
 
-The other script, `gope-init`, will look for a file named simply `.go` in the current directory, and if it finds one, will set `GOPATH` to the current directory.  For example:
+The other script, `gope-init`, will look for a file named simply `.gopath` in the current directory, and if it finds one, will set `GOPATH` to the current directory.  For example:
 
     $ ls
     $ gope-init
@@ -53,10 +53,17 @@ The other script, `gope-init`, will look for a file named simply `.go` in the cu
     $ gope-init
     GOPATH setup for /Users/jeremymcanally/code/my_go_project
 
-If you have subcommands enabled, then you can use this script as `gope init`.
+If you have subcommands enabled, then you can use this script as `gope init`.  
 
 If you add an `auto_init` variable to your `~/.gope/config`, `gope` will automatically look for a `.go` file and setup `GOPATH` when you `cd` into a directory.  Like so:
 
     $ cd gopher/
     GOPATH setup for /Users/jeremymcanally/code/gopher
 
+The `.gopath` file can be blank (which will cause `gope` to simply make `GOPATH` the current directory), but you can also provide a list of paths to add to `GOPATH`.  For example:
+
+    ./vendor
+    ~/my_other_relative_path
+    /Your/Full/Path
+
+Now your `GOPATH` will be ``pwd`:/full/path/to/vendor:/home/you/my_other_relative_path:/Your/Full/Path`.
