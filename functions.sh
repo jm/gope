@@ -2,7 +2,7 @@ function gope-init() {
   if [ -f `pwd`/.gopath ];
   then
     paths=""
-    OLD_GO_PATH=$GOPATH
+    OLD_GOPATH=$GOPATH
 
     while read line
     do
@@ -12,9 +12,9 @@ function gope-init() {
 
     if [ "$paths" == "" ]
     then
-      export GOPATH=`pwd`:$OLD_GO_PATH
+      export GOPATH=`pwd`:$OLD_GOPATH
     else
-      export GOPATH=`pwd`:$paths:$OLD_GO_PATH
+      export GOPATH=`pwd`:$paths:$OLD_GOPATH
     fi
 
     echo -e "GOPATH setup for $(tput setaf 2)$GOPATH$(tput sgr0)"
@@ -22,7 +22,7 @@ function gope-init() {
     if [ -f $OLDPWD/.gopath ];
     then
       unset GOPATH
-      export GOPATH=$OLD_GO_PATH
+      export GOPATH=$OLD_GOPATH
     fi
   fi  
 }
