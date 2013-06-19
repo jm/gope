@@ -35,3 +35,17 @@ function gope-create() {
   touch $1/.gopath
   echo -e "$(tput bold)->$(tput sgr0) $(tput setaf 2)Done.$(tput sgr0)"
 }
+
+function gope-update() {
+  local return_to=`pwd`
+  echo "Updating gope system..."
+  echo ""
+
+  cd ~/.gope/scripts
+  git pull origin master
+  source gope.sh
+
+  echo ""
+  echo "Updated!"
+  cd $return_to
+}
